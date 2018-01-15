@@ -1,0 +1,5 @@
+name: Application Monitor
+description: |
+  Elasticsearch 6.0.0 with Grafana 4.6.0 monitoring solution based on Fluentd logging driver.
+version: 3.0.0
+category: Monitoring
