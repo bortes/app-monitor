@@ -6,33 +6,12 @@
   uuid: application-monitor-0
   minimum_rancher_version: v1.5.5
   questions:
-    - variable: FLUENTD_HOST_LABEL
+    - variable: HOST_LABEL
       description: |
-        Host label where to run this service.
+        Host label where services will run.
       label: Host label (Optional)
       required: false
       type: string
-    - variable: FLUENTD_PORT
-      default: false
-      description: |
-        Enable external access to Fluent.
-      label: Fluent external access
-      required: true
-      type: boolean
-
-    - variable: ELASTICSEARCH_HOST_LABEL
-      description: |
-        Host label where to run this service.
-      label: Host label (Optional)
-      required: false
-      type: string
-    - variable: ELASTICSEARCH_PORT
-      default: false
-      description: |
-        Enable external access to Elasticsearch.
-      label: Elasticsearch external access
-      required: true
-      type: boolean
     - variable: ELASTICSEARCH_JAVA_OPTS
       default: -Xms512m -Xmx512m
       description: |
@@ -40,69 +19,3 @@
       label: Java options
       required: true
       type: string
-
-    - variable: ELASTICSEARCH_VOLUME_NAME
-      description: |
-        Enter the volume name used to persiste index data.
-      label: Volume Name (Optional)
-      required: false
-      type: string
-    - variable: ELASTICSEARCH_STORAGE_DRIVER
-      description: |
-        Enter the name of an existing storage driver (see `Infrastructure -> Storage`).
-      label: Volume Storage Driver (Optional)
-      required: false
-      type: string
-    - variable: ELASTICSEARCH_STORAGE_DRIVER_OPT
-      description: |
-        Specify a single driver_opts key/value pair format.
-      label: Storage Driver Option (Optional)
-      required: false
-      type: string
-
-    - variable: KIBANA_HOST_LABEL
-      description: |
-        Host label where to run this service.
-      label: Host label (Optional)
-      required: false
-      type: string
-    - variable: KIBANA_PORT
-      default: false
-      description: |
-        Enable external access to Kibana.
-      label: Kibana external access
-      required: true
-      type: boolean
-    - variable: KIBANA_PASSWORD
-      default: p0o9I*U&
-      description: |
-        A strong password.
-      label: Kibana password
-      required: true
-      type: password
-
-    - variable: GRAFANA_HOST_LABEL
-      description: |
-        Host label where to run this service.
-      label: Host label (Optional)
-      required: false
-      type: string
-    - variable: GRAFANA_PORT
-      default: false
-      description: |
-        Enable external access to Grafana.
-      label: Grafana external access
-      required: true
-      type: boolean
-    - variable: GRAFANA_PASSWORD
-      default: p0o9I*U&
-      description: |
-        A strong password.
-      label: Grafana password
-      required: true
-      type: password
-
-services:
-  lasticsearch:
-    scale: 2
-    start_on_create: true

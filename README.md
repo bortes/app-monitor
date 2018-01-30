@@ -3,7 +3,7 @@ A dockerized application monitor.
 
 The event data will be collected with [Docker Logging Driver](https://docs.fluentd.org/v0.12/articles/docker-logging) and delivery by [fluentd-elasticsearch](/bortes/fluentd-elasticsearch/README.md).
 
-Once data was store on Elasticsearch you can use Kibana and/or Grafana to display your dockerized application event history.
+Once data was store on Elasticsearch you can use Kibana or other visualize tool to display your dockerized application event history.
 
 
 # hands-on
@@ -28,7 +28,7 @@ Enable Kibana security with X-Pack or some kind of basic authentication.
 
 
 # more info
-About [Kibana](https://www.elastic.co/guide/en/kibana/current/dashboard.html) output and [Grafana](https://grafana.com/dashboards).
+About [Kibana](https://www.elastic.co/guide/en/kibana/current/dashboard.html).
 
 
 # thanks

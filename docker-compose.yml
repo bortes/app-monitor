@@ -1,7 +1,7 @@
 version: "2"
 services:
   fluentd:
-    image: bortes/fluentd-elasticsearch
+    image: bortes/fluentd-elasticsearch:latest
     ports:
       - "24224:24224"
 
@@ -11,16 +11,14 @@ services:
     environment:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - bootstrap.memory_lock=true
-      - network.host=_site_
-      - discovery.zen.ping.unicast.hosts=elasticsearch
       - cluster.name=app-monitor
+      - discovery.zen.ping.unicast.hosts=elasticsearch
+      - network.host=_site_
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.0.0
     ulimits:
       memlock:
         soft: -1
         hard: -1
-    ports:
-      - "9200:9200"
 
   sysctl:
     environment: 
@@ -34,10 +32,3 @@ services:
     image: docker.elastic.co/kibana/kibana-oss:6.0.0
     ports:
       - "5601:5601"
-
-  grafana:
-    environment: 
-      - GF_SECURITY_ADMIN_PASSWORD=p0o9I*U&
-    image: grafana/grafana:4.6.0
-    ports:
-      - "3000:3000"
